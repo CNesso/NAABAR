@@ -10,7 +10,7 @@ addpath('~/ownCloud/EEG/Michael_functions/');
 if ~iscell(qrsChoice),qrsChoice={qrsChoice};end
 cd(dataFolder);
 meanMethodArr={'gauss','mean','smooth'};
-for meanm=2%:length(meanMethodArr)
+for meanm=1:2%length(meanMethodArr)
     meanMethod=meanMethodArr{meanm}
     if ~isfolder(meanMethod)
         mkdir([dataFolder meanMethod]);
@@ -150,7 +150,7 @@ else
         save([dataFolder qrsChoice(1:end-find(fliplr(qrsChoice=='.'))) '_' char(num2str(chanChoice)) '.txt'],'qrsA','-ascii')
     end
 end
- eegT=eeg_addnewevents(EEG,{qrsA(3:end-1)'},{char(eventType)});
+ eegT=eeg_addnewevents(EEG,{qrsA(1:end)'},{char(eventType)});%first and last events can be excluded to increse stability
 
 %         tic
 %         eegT= fmrib_pas(EEG,qrsA','mean')
