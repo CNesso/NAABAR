@@ -192,8 +192,6 @@ for meanm=1:length(meanMethodArr)
             menu('accept deletion',"OK");
         end
         pop_saveset( pop_resample(eegT, 500), 'filename',[qrsChoice{ji}(1:end-find(fliplr(qrsChoice{ji}=='.'))) '_' meanMethod '.set'],'filepath',saveFolder);%EEG = pop_saveset( EEG, 'filename',[EEG.setname 'noMRI.set'],'filepath','/run/media/ne550/TOSHBIG/EEG/');
-
-        continue;
         %eegT =fmri_hr_rem(eegT,EEG.subsections,eventType,debaseStart,maxD,cutTollerance,trimPart,fadeRange,refW,plotSample,eegF,qrsLpf,onlySample,minAvg);
         %%
         % toc
